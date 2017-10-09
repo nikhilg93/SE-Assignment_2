@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+	<style type="text/css">
+.col-xs-updated {
+	width: 92% !important;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form rendered="#{empty username}">
+    	Not logged in. Please <h:outputLink value="http://localhost:8080/SE_AssignmentTest/Login.xhtml" >Login</h:outputLink> first.
+	</h:form >
+	<h:form rendered="#{not empty username}">
+		<h:commandButton value="logout" styleClass="btn btn-default" style="float : right;" action="#{login1.logout}" />
+      <h2>Welcome   <h:outputText label="Username" id="username" type="text"
+		value="#{login1.fName}" /> </h2>	
+</h:form>
+</h:body>
+</html>

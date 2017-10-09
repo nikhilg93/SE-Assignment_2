@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<managed-bean>
+		<managed-bean-name>login</managed-bean-name>
+		<managed-bean-class>com.assignment.Login.Login</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>registration</managed-bean-name>
+		<managed-bean-class>com.assignment.Login.Registration</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+		<navigation-rule>
+        
+        <from-view-id>/Login.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{login1.loginUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/LoginSuccess.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login1.loginUser}</from-action>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+	<navigation-rule>
+        <description>register new user</description>
+        <display-name>Register.xhtml</display-name>
+        <from-view-id>/Register.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{reg.testName}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/Login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{reg.testName}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/RegFailure.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login1.logout}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+</faces-config>

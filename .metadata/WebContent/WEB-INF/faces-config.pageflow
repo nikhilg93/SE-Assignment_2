@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf150744710440314" configfile="/SE AssignmentTest/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Login.xhtml" x="122" y="178" id="pf150745293053715" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" outlinks="pf150745293053716 pf15074797021370" inlinks="pf15074797021370 pf15074797021371 pf15074871258822" path="/Login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="LoginSuccess.xhtml" x="338" y="178" id="pf150745293053717" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf150745293053716" path="/LoginSuccess.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Register.xhtml" comment="register new user" x="122" y="754" id="pf150745293053718" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf150745293053720 pf15074797021371 pf15074871258822" path="/Register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="RegFailure.xhtml" x="338" y="946" id="pf150745293053722" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf150745293053720" path="/RegFailure.xhtml"/>
+  <links id="pf150745293053716" target="pf150745293053717" source="pf150745293053715" outcome="success" fromaction="#{login1.loginUser}"/>
+  <links id="pf150745293053720" target="pf150745293053722" source="pf150745293053718" outcome="failure" fromaction="#{reg.testName}"/>
+  <links id="pf15074797021370" target="pf150745293053715" source="pf150745293053715" outcome="login" fromaction="#{login1.loginUser}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf15074797021371" target="pf150745293053715" source="pf150745293053718" outcome="success" fromaction="#{reg.testName}"/>
+  <links id="pf15074871258822" target="pf150745293053715" source="pf150745293053718" outcome="success" fromaction="#{login1.logout}"/>
+</pageflow:Pageflow>
